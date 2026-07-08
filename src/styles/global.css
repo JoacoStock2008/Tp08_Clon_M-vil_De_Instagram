@@ -1,0 +1,64 @@
+/* ===== VARIABLES GLOBALES ===== */
+/* Acá definimos los colores y fuentes que usan todos los componentes */
+:root {
+  --bg-dark: #0d0f1a;
+  --bg-sidebar: #111327;
+  --bg-card: #161829;
+  --bg-hover: #1e2138;
+  --accent-pink: #e1306c;
+  --accent-purple: #833ab4;
+  --accent-orange: #fd1d1d;
+  --accent-gradient: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  --text-primary: #ffffff;
+  --text-secondary: #a0a3b1;
+  --text-muted: #6b6f82;
+  --border-color: #252840;
+  --font-display: 'Cinzel', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --sidebar-width: 280px;
+  --header-height: 64px;
+  --transition: 0.2s ease;
+}
+
+/* ===== RESET BÁSICO ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  overflow-x: hidden;
+}
+
+/* Scrollbar personalizado para que se vea bien */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: var(--font-body);
+}
+
+img {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

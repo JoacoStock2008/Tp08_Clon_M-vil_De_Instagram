@@ -1,0 +1,31 @@
+/* ===== LAYOUT GENERAL DE LA APP ===== */
+
+/* Contenedor principal: sidebar fija a la izq, contenido a la derecha */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-dark);
+}
+
+/* El contenido principal ocupa todo el espacio restante */
+.main-content {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Área donde se muestran las páginas (debajo del header) */
+.page-content {
+  flex: 1;
+  padding: 24px 32px;
+  overflow-y: auto;
+}
+
+/* Responsive básico: en pantallas chicas el sidebar desaparece */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+  }
+}
