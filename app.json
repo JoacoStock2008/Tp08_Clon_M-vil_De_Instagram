@@ -24,6 +24,9 @@
     },
     "web": {
       "favicon": "./assets/Logo_Instagram.png"
-    }
+    },
+    "plugins": [
+      "expo-status-bar"
+    ]
   }
 }
