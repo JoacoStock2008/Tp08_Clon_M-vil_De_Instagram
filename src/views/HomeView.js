@@ -4,7 +4,6 @@ import AppHeader from "../components/AppHeader"
 import PostCard from "../components/PostCard"
 import PostDetailModal from "../components/PostDetailModal"
 import StoriesList from "../components/StoriesList"
-import { usePosts } from "../hooks/usePosts"
 
 function HomeView() {
 	const { posts, loading, error, loadPosts, toggleLike } = usePosts(12)
