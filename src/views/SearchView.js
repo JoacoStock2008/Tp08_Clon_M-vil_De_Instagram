@@ -3,10 +3,18 @@ import { useMemo, useState } from "react"
 import AppHeader from "../components/AppHeader"
 import { fakeUsers } from "../data/userData"
 import { usePosts } from "../hooks/usePosts"
+import { usePostsContext } from "../context/PostsContext";
 
 function SearchView() {
 	const [searchText, setSearchText] = useState("")
-	const { posts } = usePosts(15)
+	const {
+		posts,
+		loading,
+		error,
+		toggleLike,
+	} = usePostsContext();
+
+	const searchPosts = posts.slice(0, 15);
 
 	const users = useMemo(() => {
 		return fakeUsers.filter((user) => user.username.toLowerCase().includes(searchText.toLowerCase()))
@@ -40,7 +48,7 @@ function SearchView() {
 
 				<Text style={styles.title}>Explorar</Text>
 				<FlatList
-					data={posts}
+					data={searchPosts}
 					keyExtractor={(item) => item.id}
 					numColumns={3}
 					renderItem={({ item }) => <Image source={{ uri: item.imageUrl }} style={styles.gridImage} />}

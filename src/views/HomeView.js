@@ -4,19 +4,28 @@ import AppHeader from "../components/AppHeader"
 import PostCard from "../components/PostCard"
 import PostDetailModal from "../components/PostDetailModal"
 import StoriesList from "../components/StoriesList"
+import { usePosts } from "../hooks/usePosts"
+import { usePostsContext } from "../context/PostsContext";
 
 function HomeView() {
-	const { posts, loading, error, loadPosts, toggleLike } = usePosts(12)
+	const { loadPosts } = usePosts(12);
+    const {
+        posts,
+        loading,
+        error,
+        toggleLike,
+    } = usePostsContext();
 	const [selectedPost, setSelectedPost] = useState(null)
 
+	const homePosts = posts.slice(0, 12);
 	return (
 		<View style={styles.screen}>
 			<AppHeader />
 			<FlatList
-				data={posts}
+				data={homePosts}
 				keyExtractor={(item) => item.id}
 				renderItem={({ item }) => (
-					<PostCard post={item} onLike={toggleLike} onOpenPost={setSelectedPost} />
+					<PostCard homePost={item} onLike={toggleLike} onOpenPost={setSelectedPost} />
 				)}
 				ListHeaderComponent={(
 					<View>

@@ -4,17 +4,25 @@ import AppHeader from "../components/AppHeader"
 import ProfileHeader from "../components/ProfileHeader"
 import PostDetailModal from "../components/PostDetailModal"
 import { usePosts } from "../hooks/usePosts"
+import { usePostsContext } from "../context/PostsContext";
 
 function ProfileView() {
 	const [activeTab, setActiveTab] = useState("posts")
 	const [selectedPost, setSelectedPost] = useState(null)
-	const { posts, toggleLike } = usePosts(9)
+	const {
+		posts,
+		loading,
+		error,
+		toggleLike,
+	} = usePostsContext();
+
+	const profilePosts = posts.slice(0, 9);
 
 	return (
 		<View style={styles.screen}>
 			<AppHeader title="Profile" showSearch={false} />
 			<FlatList
-				data={activeTab == "posts" ? posts : []}
+				data={activeTab == "posts" ? profilePosts : []}
 				keyExtractor={(item) => item.id}
 				numColumns={3}
 				contentContainerStyle={styles.content}
